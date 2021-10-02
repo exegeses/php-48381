@@ -3,7 +3,7 @@
 # Curso de PHP y mySQL 48381
 
 > Curso de PHP y mySQL |    
-> Sábados 10hs a 16hs |    
+> Sábados 10hs a 14hs |    
 > Código 48381 |    
 > sensei: Marcos Pinardi |    
 

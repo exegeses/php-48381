@@ -37,8 +37,7 @@
         $img = 'ok';
     }
 ?>
-    <img src="images/<?= $img ?>.png">
-
+    <img src="images/<?= $img; ?>.png">
 
 </body>
 </html>

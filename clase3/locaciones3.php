@@ -1,5 +1,5 @@
 <?php
-    $locaciones2 =
+    $locaciones =
         [
             'Cambodia'=>'angkor',
             'Turquía'=>'azul',
@@ -34,17 +34,17 @@
     <main>
 
 <?php
-
+    foreach ( $locaciones as $locacion => $imagen ){
 ?>
         <article>
-            <img src="locaciones/acropolis.jpg">
-            <h2>Nombre</h2>
+            <img src="locaciones/<?= $imagen ?>.jpg">
+            <h2><?= $locacion ?></h2>
             <p>
                 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias animi at atque beatae, corporis deserunt dolorem eius eveniet ex harum, magni obcaecati qui ratione veritatis.
             </p>
         </article>
 <?php
-
+    }
 ?>
 
     </main>

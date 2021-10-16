@@ -41,17 +41,17 @@ $locaciones3 =
     <main>
 
 <?php
-
+        for( $n = 0; $n < $cantidad; $n++ ){
 ?>
         <article>
-            <img src="locaciones/acropolis.jpg">
-            <h2>Nombre</h2>
+            <img src="locaciones/<?= $locaciones[$n] ?>.jpg">
+            <h2><?= $locaciones3[$n] ?></h2>
             <p>
                 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias animi at atque beatae, corporis deserunt dolorem eius eveniet ex harum, magni obcaecati qui ratione veritatis.
             </p>
         </article>
 <?php
-
+        }
 ?>
 
     </main>

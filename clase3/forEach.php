@@ -4,7 +4,7 @@
                 'Zara', 'UniQlo', 'Puma'
                 ];
 
-    //foreach ( $coleccion as $auxiliar )
-    foreach ( $marcas as $marca ){
-        echo $marca, '<br>';
+    //foreach ( $coleccion as $clave => $auxiliar )
+    foreach ( $marcas as $clave => $marca ){
+        echo $clave, ': ', $marca, '<br>';
     }

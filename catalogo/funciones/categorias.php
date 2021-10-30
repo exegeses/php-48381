@@ -8,7 +8,8 @@
         $link   = conectar();
         $sql    = "SELECT idCategoria, catNombre 
                       FROM categorias";
-        $resultado = mysqli_query( $link, $sql );
+        $resultado = mysqli_query( $link, $sql )
+                            or die( mysqli_error( $link ) );
         return $resultado;
     }
     function verCategoriaPorID()

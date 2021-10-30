@@ -3,6 +3,13 @@
     require 'funciones/conexion.php';
     require 'funciones/marcas.php';
     $chequeo = agregarMarca();
+    $css     = 'danger';
+    $mensaje = 'No se pudo agregar la marca.';
+    if( $chequeo ){
+        $css     = 'success';
+        $mensaje = 'Marca agregada correctamente.';
+    }
+    
     include 'includes/header.html';
     include 'includes/nav.php';
 ?>
@@ -10,22 +17,14 @@
     <main class="container">
         <h1>Alta de una marca</h1>
 
-        <div class="alert alert-success col-8 mx-auto">
-            Marca agregada correctamente.
+        <div class="alert alert-<?= $css ?> col-8 mx-auto">
+            <?= $mensaje ?>
             <br>
             <a href="adminMarcas.php" class="btn btn-light">
                 Volver a panel
             </a>
         </div>
 
-        <div class="alert alert-danger col-8 mx-auto">
-            No se pudo agregar la marca.
-            <br>
-            <a href="adminMarcas.php" class="btn btn-light">
-                Volver a panel
-            </a>
-        </div>
-
-    </main>
+ </main>
 
 <?php  include 'includes/footer.php';  ?>

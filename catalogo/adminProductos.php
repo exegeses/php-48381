@@ -1,7 +1,9 @@
 <?php  
 
-
-	include 'includes/header.html';  
+    require 'funciones/conexion.php';
+    require 'funciones/productos.php';
+    $productos = listarProductos();
+	include 'includes/header.html';
 	include 'includes/nav.php';  
 ?>
 
@@ -30,15 +32,17 @@
             </thead>
             <tbody>
 <?php
-
+            while ( $producto = mysqli_fetch_assoc( $productos ) ) {
 ?>            
                 <tr>
-                    <td>producto</td>
-                    <td>Precio</td>
-                    <td>Marca</td>
-                    <td>Categoria</td>
-                    <td>Presentación</td>
-                    <td>Imagen</td>
+                    <td><?= $producto['prdNombre'] ?></td>
+                    <td>$<?= $producto['prdPrecio'] ?></td>
+                    <td><?= $producto['mkNombre'] ?></td>
+                    <td><?= $producto['catNombre'] ?></td>
+                    <td><?= $producto['prdPresentacion'] ?></td>
+                    <td>
+                        <img src="productos/<?= $producto['prdImagen'] ?>" class="img-thumbnail">
+                    </td>
                     <td>
                         <a href="" class="btn btn-outline-secondary">
                             Modificar
@@ -51,7 +55,7 @@
                     </td>
                 </tr>
 <?php
-
+            }
 ?>
             </tbody>
         </table>

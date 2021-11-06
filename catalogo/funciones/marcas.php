@@ -52,5 +52,23 @@
         return $resultado;
     }
 
+    /**
+     * función para chequear si hay productos
+     * de una marca
+     * @param int $idMarca
+     * @return int $cantidad
+     */
+    function checkProductoPorMarca($idMarca)
+    {
+        $link = conectar();
+        $sql  = "SELECT 1 
+                    FROM productos
+                    WHERE idProducto = ".$idMarca;
+        $resultado = mysqli_query( $link, $sql )
+                        or die( mysqli_error( $link ) );
+        $cantidad  = mysqli_num_rows( $resultado );
+        return $cantidad;
+    }
+
     function eliminarMarca()
     {}

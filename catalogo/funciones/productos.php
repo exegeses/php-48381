@@ -27,6 +27,26 @@
         return $resultado;
     }
 
+    function verProductoPorID()
+    {
+        $idProducto = $_GET['idProducto'];
+        $link = conectar();
+        $sql = "SELECT idProducto, prdNombre, prdPrecio,
+                        marcas.idMarca, mkNombre, 
+                        categorias.idCategoria, catNombre,
+                        prdPresentacion, prdStock, prdImagen 
+                    FROM productos
+                    JOIN marcas
+                        ON marcas.idMarca = productos.idMarca
+                    JOIN categorias 
+                        ON categorias.idCategoria = productos.idCategoria
+                    WHERE idProducto = ".$idProducto;
+        $resultado = mysqli_query( $link, $sql )
+                            or die( mysqli_error( $link ) );
+        $producto  = mysqli_fetch_assoc( $resultado );
+        return $producto;
+    }
+
     function subirArchivo()
     {
         // si no enviaron archivo

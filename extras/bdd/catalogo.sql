@@ -37,7 +37,8 @@ CREATE TABLE `categorias` (
 -- Volcado de datos para la tabla `categorias`
 --
 
-INSERT INTO `categorias` (`idCategoria`, `catNombre`) VALUES
+INSERT INTO `categorias` (`idCategoria`, `catNombre`)
+VALUES
 (1, 'PC'),
 (2, 'Smartphone'),
 (3, 'Tablets'),

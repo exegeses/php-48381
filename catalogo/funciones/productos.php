@@ -58,4 +58,20 @@
         //subimos imagen *
         $prdImagen      = subirArchivo();
         //guardamos en tabla productos
+        $link = conectar();
+        $sql  = "INSERT INTO productos
+                    VALUE 
+                        ( 
+                         DEFAULT,
+                        '".$prdNombre."',
+                        ".$prdPrecio.",
+                        ".$idMarca.",
+                        ".$idCategoria.",
+                        '".$prdPresentacion."',
+                        ".$prdStock.",
+                        '".$prdImagen."'
+                        )";
+        $resultado = mysqli_query( $link, $sql )
+                        or die( mysqli_error( $link ) );
+        return $resultado;
     }

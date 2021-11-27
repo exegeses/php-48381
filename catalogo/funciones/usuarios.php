@@ -9,3 +9,12 @@
                         or die( mysqli_error($link) );
         return $resultado;
     }
+
+    function agregarUsuario()
+    {
+        $usuNombre = $_POST['usuNombre'];
+        $usuApellido = $_POST['usuApellido'];
+        $usuEmail = $_POST['usuEmail'];
+        $usuPass = $_POST['usuPass'];// clave enviada sin hash
+        $pwHash  = password_hash( $usuPass, PASSWORD_DEFAULT );
+    }

@@ -17,4 +17,12 @@
         $usuEmail = $_POST['usuEmail'];
         $usuPass = $_POST['usuPass'];// clave enviada sin hash
         $pwHash  = password_hash( $usuPass, PASSWORD_DEFAULT );
+        $link    = conectar();
+        $sql     = "INSERT INTO usuarios
+                            ( usuNombre, usuApellido, usuEmail, usuPass, usuEstado )
+                            VALUE 
+                            ( '".$usuNombre."', '".$usuApellido."', '".$usuEmail."', '".$pwHash."', 1 )";
+        $resultado = mysqli_query( $link, $sql )
+                                or die( mysqli_error($link) );
+        return $resultado;
     }

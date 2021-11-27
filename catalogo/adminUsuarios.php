@@ -40,7 +40,7 @@
                     <td><?= $usuario['usuApellido'] ?></td>
                     <td><?= $usuario['usuEmail'] ?></td>
                     <td>
-                        <a href="" class="btn btn-outline-secondary btn-sm">
+                        <a href="formModificarUsuario.php?idUsuario=<?= $usuario['idUsuario'] ?>" class="btn btn-outline-secondary btn-sm">
                             <i class="bi bi-pencil-square"> </i>
                             Modificar
                         </a>

@@ -30,7 +30,13 @@
             }
             else{
                 /* acá ya sabemos que se logueó bien */
-                
+                ######## RUTINA DE AUTENTICACIÓN #############
+                $_SESSION['login'] = 1;
+                $_SESSION['usuNombre'] = $usuario['usuNombre'];
+                $_SESSION['usuApellido'] = $usuario['usuApellido'];
+                $_SESSION['idUsuario'] = $usuario['idUsuario'];
+                //redirección a admin
+                header('location: admin.php');
             }
         }
     }

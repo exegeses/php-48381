@@ -44,6 +44,17 @@
 
         </div>
 
+<?php
+        if ( isset( $_GET['error'] ) ) {
+            $mensaje = ( $_GET['error']==3 ) ? 'Las nuevas contraseñas no coinciden.' : 'La clave actual es incorrecta.';
+?>
+            <div class="alert alert-danger col-8 mx-auto">
+                <?= $mensaje ?>
+            </div>
+<?php
+        }
+?>
+
         <script>
             let form = document.querySelector('.validarForm');
             let usuPass = document.querySelector('#usuPass');

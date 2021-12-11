@@ -56,3 +56,37 @@
                     or die( mysqli_error($link) );
         return $resultado;
     }
+
+    function modificarClave()
+    {
+        //clave actual sin encriptar
+        $usuPass = $_POST['usuPass'];
+        /** obtenemos clave encriptada en tabla usuarios **/
+        $link = conectar();
+        $sql  = "SELECT usuPass 
+                    FROM usuarios   
+                    WHERE idUsuario = ".$_SESSION['idUsuario'];
+        $resultado = mysqli_query( $link, $sql )
+                            or die( mysqli_error($link) );
+        $datoUsuario = mysqli_fetch_assoc($resultado); //$datoUsuario['usuPass']
+        if( password_verify( $usuPass, $datoUsuario['usuPass'] ) ){
+            //si verifica la contraseña
+            if( $_POST['newPass'] == $_POST['newPass2'] ){ // si nueva clave es igual a repite clave
+                //encripramos
+                $pwHash = password_hash( $_POST['newPass'], PASSWORD_DEFAULT );
+                /* modificamos clave */
+                $sql = "UPDATE usuarios 
+                            SET usuPass = '".$pwHash."'
+                           WHERE idUsuario = ".$_SESSION['idUsuario'];
+                $resultado = mysqli_query( $link, $sql )
+                                 or die( mysqli_error($link) );
+                return $resultado;
+            }
+            // no coinciden clave nueva con repite clave
+            header( 'location: formModificarClave.php?error=3' );
+            return;
+        }
+        // no conicide clave actual con la clave en tanla usuarios
+        header( 'location: formModificarClave.php?error=4' );
+        return;
+    }

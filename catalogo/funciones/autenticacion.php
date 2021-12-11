@@ -55,3 +55,11 @@
             header('location: formLogin.php?error=1');
         }
     }
+    function estaLogueado()
+    {
+        if ( isset( $_SESSION['login']  ) ){
+            //echo $_SERVER['SCRIPT_FILENAME'];
+            header('location: admin.php');
+        }
+    }
+

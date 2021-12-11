@@ -1,5 +1,7 @@
 <?php
     require 'config/config.php';
+    require 'funciones/autenticacion.php';
+    estaLogueado(); // no dejamos acceder a esta formulario
     include 'includes/header.html';
     include 'includes/nav.php';
 ?>

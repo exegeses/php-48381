@@ -1,6 +1,8 @@
 <?php  
 
     require 'funciones/conexion.php';
+    require 'funciones/autenticacion.php';
+        autenticar();
     require 'funciones/productos.php';
     $productos = listarProductos();
 	include 'includes/header.html';

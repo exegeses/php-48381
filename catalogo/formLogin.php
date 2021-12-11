@@ -27,9 +27,10 @@
         </div>
 <?php
         if ( isset( $_GET['error'] ) ) {
+            $mensaje = ( $_GET['error']==1 ) ? 'Usuario y/o contraseña incorrectos' : 'Debe loguearse para ingresar';
 ?>
         <div class="alert alert-danger col-8 mx-auto">
-            Usuario y/o contraseña incorrectos
+            <?= $mensaje ?>
         </div>
 <?php
         }

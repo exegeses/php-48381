@@ -90,3 +90,14 @@
         header( 'location: formModificarClave.php?error=4' );
         return;
     }
+
+    function eliminarUsuario()
+    {
+        $idUsuario = $_POST['idUsuario'];
+        $link = conectar();
+        $sql  = "DELETE FROM usuarios
+                    WHERE idUsuario = ".$idUsuario;
+        $resultado = mysqli_query( $link, $sql )
+                        or die( mysqli_error($link) );
+        return $resultado;
+    }
